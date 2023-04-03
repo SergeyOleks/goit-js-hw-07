@@ -16,27 +16,13 @@ const markup = galleryItems.map(({ preview: url, description: alt,  original: ur
             />
         </a>
     </li>`).join('')
-ulEl.insertAdjacentHTML("beforeend", markup)
 
-ulEl.addEventListener('click', onClick);
-
-function onClick(evt) {
-    evt.preventDefault()
-
+ulEl.insertAdjacentHTML("beforeend", markup); 
     let gallerySimLight = new SimpleLightbox('.gallery a', {
-        sourceAttr:'href',
-        captions: true,
-        captionSelector: 'img',
-        captionType: 'attr',
         captionsData: 'alt',
-        captionPosition: 'bottom',
         captionDelay: 250
     });
-    gallerySimLight.on('show.simplelightbox');
-}
 
-
-
-
+gallerySimLight.on('show.simplelightbox');
 
 
